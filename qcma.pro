@@ -7,7 +7,8 @@
 QT       += core \
             gui \
             widgets \
-            network
+            network \
+            sql
 
 TARGET = qcma
 
@@ -32,7 +33,8 @@ SOURCES += main.cpp \
     backupitem.cpp \
     confirmdialog.cpp \
     progressform.cpp \
-    pinform.cpp
+    pinform.cpp \
+    sqlitedb.cpp
 
 HEADERS += \
     capability.h \
@@ -53,7 +55,8 @@ HEADERS += \
     backupitem.h \
     confirmdialog.h \
     progressform.h \
-    pinform.h
+    pinform.h \
+    sqlitedb.h
 
 CONFIG += link_pkgconfig
 PKGCONFIG += libvitamtp libavformat libavcodec libavutil libswscale

@@ -23,6 +23,7 @@
 
 #include <QDebug>
 #include <QLocale>
+#include <QTextCodec>
 #include <QThread>
 #include <QTranslator>
 
@@ -40,7 +41,7 @@ void noMessageOutput(QtMsgType type, const char *msg)
     Q_UNUSED(type);
     Q_UNUSED(msg);
 }
-
+#include "sqlitedb.h"
 int main(int argc, char *argv[])
 {
     if(SingleApplication::sendMessage(QObject::tr("A instance of QCMA is already running"))) {
@@ -81,6 +82,9 @@ int main(int argc, char *argv[])
     // set the organization/application for QSettings to work properly
     app.setOrganizationName("qcma");
     app.setApplicationName("qcma");
+
+    // set default conversion to char */QByteArray to UTF-8
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
     //TODO: check if this is actually needed since we don't have a main window by default
     QApplication::setQuitOnLastWindowClosed(false);

@@ -41,7 +41,7 @@ void noMessageOutput(QtMsgType type, const char *msg)
     Q_UNUSED(type);
     Q_UNUSED(msg);
 }
-#include "sqlitedb.h"
+
 int main(int argc, char *argv[])
 {
     if(SingleApplication::sendMessage(QObject::tr("A instance of QCMA is already running"))) {
